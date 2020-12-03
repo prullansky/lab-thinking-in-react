@@ -2,24 +2,22 @@ import React, { Component } from 'react'
 
 export default class SearchBar extends Component {
 
+    handleSearch = event => {
+        this.props.setQuery(event.target.value)
+    }
 
 
-
-    
     render() {
         return (
-            <div>
-                <h1>This is supposed to be a searchbar</h1>
-                <form onSubmit={this.handleSubmit}>
+            <div>               
                     <input 
-                    type="search"
+                    type='text'
                     id='search'
-                    name='search'
-                    placeholder="Search for a product"
-                    // value={} 
-                    // onChange={}        
+                    name='query'
+                    placeholder="Search for a product.."
+                    value={this.props.query} 
+                    onChange={this.handleSearch}        
                     />
-                    </form>
             </div>
         )
     }
